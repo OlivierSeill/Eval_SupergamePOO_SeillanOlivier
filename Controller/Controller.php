@@ -56,8 +56,20 @@ class Controller{
     
     //METHODS
     //render() : appelle la view et lui demande de lancer sa méthode displayAll().
+    /*
     public function render():void{
         $this->getView()->displayAll();
     }
+    */
 
+    /*BONUS:
+    Modification de la méthode render avec le buffer
+    */
+    public function render() {
+    //Je récupère le HTML généré par la vue grâce au buffer
+    $htmlPage = $this->view->displayAll(); 
+    
+    // Et je l'affiche avec un echo()
+    echo $htmlPage;
+    }
 }

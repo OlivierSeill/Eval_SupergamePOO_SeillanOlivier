@@ -102,11 +102,24 @@ class ViewHome extends View {
     /*
      displayAll() : effectue le lancement de chaque display dans le bon ordre : displayHeader(), displayMain(), displayFooter()
     */
-
+    /*
      public function displayAll(): void {
         $this->displayHeader()->displayMain()->displayFooter();
     }
-    
+    */
 
+    /* BONUS :
+     displayAll() : avec utilisation du buffer de sortie pour capturer tout le HTML sous un format string
+     */
+    public function displayAll(): string {
+        //Démarrage du buffer
+        ob_start();
+
+        //Insertion des affichages successifs (Header -> Main -> Footer)
+        $this->displayHeader()->displayMain()->displayFooter();
+
+        //Récupération du contenu du buffer
+        return ob_get_clean();
+    }
     
 }
